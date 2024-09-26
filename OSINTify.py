@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 import socket
 from googlesearch import search
 from tabulate import tabulate
+import textwrap
 
 
 # WHOIS Lookup
@@ -117,7 +118,7 @@ def osint_recon(domain):
     print(f"Gathering OSINT for: {domain}\n")
 
     whois_data = get_whois_info(domain)
-    whois_table = [[key, value] for key, value in whois_data.items()]
+    whois_table = [[key, textwrap.fill(str(value), width=60)] for key, value in whois_data.items()]
     print("WHOIS Data:")
     print(tabulate(whois_table, headers=["Field", "Value"], tablefmt="grid"))
     print("\n")
@@ -140,7 +141,7 @@ def osint_recon(domain):
     for key, value in github_info.items():
         if isinstance(value, list):
             value = ', '.join(value)
-        github_table.append([key, value])
+        github_table.append([key, textwrap.fill(str(value), width=60)])
     
     print(tabulate(github_table, headers=["Category", "Links"], tablefmt="grid"))
     print("\n")
