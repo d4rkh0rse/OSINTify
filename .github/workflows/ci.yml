@@ -36,10 +36,12 @@ jobs:
           pip install flake8
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
-      # Step 5: Run tests (if you have any)
-      - name: Run tests (if applicable)
-        run: |
-          pytest  # If you add tests, they'll run here
+      - name: Check Python version
+        run: python --version
+
+      - name: Check installed packages
+        run: pip list
+     
 
   google-dorking:
     runs-on: ubuntu-latest
@@ -90,14 +92,5 @@ jobs:
       - name: Run GitHub Recon example
         run: |
           python osint.py -d example.com  # Modify with the command you use
-# Add a step to list files in the directory
-- name: List files
-  run: ls -la
 
-# Add a step to check Python version
-- name: Check Python version
-  run: python --version
-
-# Add a step to check installed packages
-- name: Check installed packages
-  run: pip list
+      
