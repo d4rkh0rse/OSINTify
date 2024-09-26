@@ -9,12 +9,10 @@ from pprint import pprint
 import socket
 from googlesearch import search
 import time
-from prettytable import PrettyTable  # Import the PrettyTable library
+ 
 from tabulate import tabulate
 
 # WHOIS Lookup
-
-
 def get_whois_info(domain):
     try:
         w = whois.whois(domain)
@@ -23,8 +21,6 @@ def get_whois_info(domain):
         return f"Error fetching WHOIS: {e}"
 
 # DNS Lookup
-
-
 def get_dns_records(domain):
     try:
         result = dns.resolver.resolve(domain, 'A')
@@ -33,8 +29,6 @@ def get_dns_records(domain):
         return f"Error fetching DNS records: {e}"
 
 # Reverse IP Lookup (find domains on same IP)
-
-
 def reverse_ip_lookup(domain):
     try:
         ip = socket.gethostbyname(domain)
@@ -54,8 +48,6 @@ def reverse_ip_lookup(domain):
 def github_recon(domain):
     results = {}
     search_term = domain.split('.')[0]
-
-    # GitHub Search
     try:
         # Search for users
         github_user_url = f"https://api.github.com/search/users?q={search_term}+type:user"
@@ -109,11 +101,8 @@ def google_dorking(domain):
     domain_with_dot = f"{domain}"
     dorks = fetch_dorks()
     for dork in dorks:
-        # Replace 'example.com' or 'example' with the user's domain
         dork_with_domain = dork.replace('example.com', domain_with_dot)
         dork_with_domain = dork_with_domain.replace('example', domain)
-
-        # Prevent creation of `att.com.com` and `att.com[.]com`
         dork_with_domain = re.sub(
             rf"{domain}\.com\.com", f"{domain}.com", dork_with_domain)
         dork_with_domain = re.sub(
@@ -128,16 +117,11 @@ def google_dorking(domain):
 
     return generated_dorks
 
-# Cleanup domain input (remove schemes like http:// or https://)
-
-
 def clean_domain(url):
     parsed_url = urlparse(url)
     return parsed_url.netloc if parsed_url.scheme else url
 
 # OSINT Recon for a single domain (includes all features)
-
-
 def osint_recon(domain):
     domain = clean_domain(domain)
     print(f"Gathering OSINT for: {domain}\n")
@@ -169,7 +153,6 @@ def osint_recon(domain):
     github_table = []
 
     for key, value in github_info.items():
-        # If value is a list, format it; otherwise, just add it
         if isinstance(value, list):
             value = ', '.join(value)
         github_table.append([key, value])
@@ -186,8 +169,6 @@ def osint_recon(domain):
     print("\n")
 
 # Process a file with list of domains
-
-
 def process_domain_file(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -213,8 +194,6 @@ def print_banner():
             GitHub: https://github.com/d4rkh0rse
             Version: 1.0.0                                            
     """
-    
-
     print(banner)
 
 
