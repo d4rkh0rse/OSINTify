@@ -210,8 +210,8 @@ def print_banner():
 ╚██████╔╝███████║██║██║ ╚████║   ██║   ██║██║        ██║   
  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
             Author: D4rk_H0rs3
-            GitHub: https://github.com/YourGitHub
-            version = "Version: 1.0.0"                                              
+            GitHub: https://github.com/d4rkh0rse
+            Version: 1.0.0                                            
     """
     
 
