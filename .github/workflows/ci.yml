@@ -90,3 +90,14 @@ jobs:
       - name: Run GitHub Recon example
         run: |
           python osint.py -d example.com  # Modify with the command you use
+# Add a step to list files in the directory
+- name: List files
+  run: ls -la
+
+# Add a step to check Python version
+- name: Check Python version
+  run: python --version
+
+# Add a step to check installed packages
+- name: Check installed packages
+  run: pip list
