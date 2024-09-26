@@ -1,6 +1,6 @@
 # OSINTify
 
-![OSINTify Banner](https://via.placeholder.com/600x150?text=OSINTify)  <!-- You can replace this with an actual image link -->
+![OSINTify Banner](https://raw.githubusercontent.com/d4rkh0rse/OSINTify/refs/heads/main/osintify.png)  <!-- You can replace this with an actual image link -->
 
 OSINTify is a powerful Open Source Intelligence (OSINT) reconnaissance tool designed to gather essential information about a given domain. It performs various lookups and searches to provide insights from WHOIS data to GitHub profiles, DNS records, and more.
 
