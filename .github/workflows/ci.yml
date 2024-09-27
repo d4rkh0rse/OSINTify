@@ -1,6 +1,5 @@
 name: OSINTify CI Pipeline
 
-# When to trigger the workflow: on pushes to main or pull requests to main
 on:
   push:
     branches:
@@ -11,16 +10,17 @@ on:
 
 jobs:
   test:
+    name: Test and Lint
     runs-on: ubuntu-latest  # Use the latest Ubuntu environment for testing
 
     steps:
       # Step 1: Check out the code from the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Step 2: Set up Python
-      - name: Set up Python 3.9  # Choose the version you're using
-        uses: actions/setup-python@v2
+      # Step 2: Set up Python 3.9
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
@@ -30,30 +30,37 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: (Optional) Run linting checks using flake8 for code quality
+      # Step 4: Run linting checks using flake8 for code quality
       - name: Lint code using flake8
         run: |
           pip install flake8
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
+      # Step 5: Run pytest (if you have tests defined)
+      - name: Run Tests
+        run: |
+          pytest test_osintify.py  # Modify with your test script
+
+      # Step 6: Check Python version (debugging)
       - name: Check Python version
         run: python --version
 
+      # Step 7: Check installed packages (debugging)
       - name: Check installed packages
         run: pip list
-     
 
   google-dorking:
+    name: Google Dorking Module Test
     runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Step 2: Set up Python
+      # Step 2: Set up Python 3.9
       - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
@@ -63,22 +70,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Perform Google Dorking on a sample domain (modify as needed)
+      # Step 4: Perform Google Dorking on a sample domain
       - name: Run Google Dorking example
         run: |
-          python OSINTify.py -d example.com  # Replace with actual command you use
+          python osint.py -d example.com -dorks  # Replace with actual command
 
   github-recon:
+    name: GitHub Recon Module Test
     runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Step 2: Set up Python
+      # Step 2: Set up Python 3.9
       - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
@@ -88,9 +96,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Perform GitHub Recon on a sample domain (modify as needed)
+      # Step 4: Perform GitHub Recon on a sample domain
       - name: Run GitHub Recon example
         run: |
-          python OSINTify.py -d example.com  # Modify with the command you use
-
-      
+          python osint.py -d example.com -github  # Replace with actual command
