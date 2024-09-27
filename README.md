@@ -4,16 +4,20 @@
 
 [![OSINTify CI Pipeline](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml/badge.svg)](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/d4rkh0rse/OSINTify/issues)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue)](https://github.com/d4rkh0rse/OSINTify/releases)
+
+
 
 OSINTify is a powerful Open Source Intelligence (OSINT) reconnaissance tool designed to gather essential information about a given domain. It performs various lookups and searches to provide insights from WHOIS data to GitHub profiles, DNS records, and more.
 
-## Features
+## 🚀 What's New in v1.0.1
 
 - **WHOIS Lookup**: Retrieve registration details of a domain.
 - **DNS Records**: Fetch A records and other DNS entries.
 - **Reverse IP Lookup**: Find other domains hosted on the same IP.
 - **GitHub Recon**: Search for related GitHub users and organizations.
 - **Google Dorking**: Generate and display Google dorks tailored to the target domain.
+- **Better Subdomain Enumeration**: Enhanced output formatting and improved accuracy..
 
 ## Installation
 
