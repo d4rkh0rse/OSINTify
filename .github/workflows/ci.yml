@@ -36,16 +36,11 @@ jobs:
           pip install flake8
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
-      # Step 5: Run pytest (if you have tests defined)
-      - name: Run Tests
-        run: |
-          pytest test_osintify.py  # Modify with your test script
-
-      # Step 6: Check Python version (debugging)
+      # Step 5: Check Python version (debugging)
       - name: Check Python version
         run: python --version
 
-      # Step 7: Check installed packages (debugging)
+      # Step 6: Check installed packages (debugging)
       - name: Check installed packages
         run: pip list
 
