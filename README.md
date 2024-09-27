@@ -1,6 +1,6 @@
 # OSINTify
 
-![OSINTify Banner](https://raw.githubusercontent.com/d4rkh0rse/OSINTify/refs/heads/main/osintify.png)  <!-- You can replace this with an actual image link -->
+![OSINTify Banner](https://raw.githubusercontent.com/d4rkh0rse/OSINTify/refs/heads/main/osintify.png) 
 
 [![OSINTify CI Pipeline](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml/badge.svg)](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/d4rkh0rse/OSINTify/issues)
