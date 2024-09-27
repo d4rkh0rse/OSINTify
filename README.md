@@ -31,8 +31,25 @@ pip install -r requirements.txt
 ```
 ## Usage
 ```bash
-python OSINTify.py -d example.com
+python OSINTify.py -d example.com -subs -ssl -whois -dns -revip -github -dorks
 ```
+### Example Commands
+
+- **Run All Features**:
+    ```bash
+    python OSINTify.py -d example.com -subs -ssl -whois -dns -revip -github -dorks
+    ```
+
+- **Run Specific Features**:
+    - Subdomain enumeration and WHOIS lookup:
+        ```bash
+        python OSINTify.py -d example.com -subs -whois
+        ```
+
+    - GitHub reconnaissance and DNS lookup:
+        ```bash
+        python OSINTify.py -d example.com -github -dns
+        ```
 
 ## Contribution
 Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
