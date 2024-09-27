@@ -1,6 +1,15 @@
 # OSINTify
 
-![OSINTify Banner](https://raw.githubusercontent.com/d4rkh0rse/OSINTify/refs/heads/main/osintify.png) 
+ ██████╗ ███████╗██╗███╗   ██╗████████╗██╗███████╗██╗   ██╗
+██╔═══██╗██╔════╝██║████╗  ██║╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
+██║   ██║███████╗██║██╔██╗ ██║   ██║   ██║█████╗   ╚████╔╝ 
+██║   ██║╚════██║██║██║╚██╗██║   ██║   ██║██╔══╝    ╚██╔╝  
+╚██████╔╝███████║██║██║ ╚████║   ██║   ██║██║        ██║   
+ ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
+       
+       Author: D4rk_H0rs3
+       Github: https://github.com/d4rkh0rse
+       Version: 1.0.1       
 
 [![OSINTify CI Pipeline](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml/badge.svg)](https://github.com/d4rkh0rse/OSINTify/actions/workflows/ci.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/d4rkh0rse/OSINTify/issues)
