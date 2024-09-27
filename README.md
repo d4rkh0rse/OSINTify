@@ -17,7 +17,8 @@ OSINTify is a powerful Open Source Intelligence (OSINT) reconnaissance tool desi
 - **Reverse IP Lookup**: Find other domains hosted on the same IP.
 - **GitHub Recon**: Search for related GitHub users and organizations.
 - **Google Dorking**: Generate and display Google dorks tailored to the target domain.
-- **Better Subdomain Enumeration**: Enhanced output formatting and improved accuracy..
+- **SSL Certificate Details**: Get information about the domain's SSL certificate.
+- **Subdomain Enumeration**: Enhanced output formatting and improved accuracy.
 
 ## Installation
 
