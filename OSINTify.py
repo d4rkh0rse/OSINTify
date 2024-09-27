@@ -8,7 +8,8 @@ import socket
 from googlesearch import search
 from tabulate import tabulate
 import textwrap
-
+from ssl_info import ssl_certificate_info
+from subdomain_enum import subdomain_enumeration
 
 # WHOIS Lookup
 def get_whois_info(domain):
@@ -36,11 +37,11 @@ def reverse_ip_lookup(domain):
         result = resolver.resolve(reversed_ip, 'PTR')
         return [rdata.to_text() for rdata in result]
     except dns.resolver.NoAnswer:
-        return f"No PTR record found for IP: {ip}."
+        return ["No PTR record found for IP: {}".format(ip)]  # Return as a list
     except dns.resolver.NXDOMAIN:
-        return f"The domain {domain} does not exist."
+        return ["The domain {} does not exist.".format(domain)]  # Return as a list
     except Exception as e:
-        return f"Error in reverse IP lookup for {domain}: {e}"
+        return ["Error in reverse IP lookup for {}: {}".format(domain, e)]  # Return as a list
 
 def github_recon(domain):
     results = {}
@@ -117,22 +118,42 @@ def osint_recon(domain):
     domain = clean_domain(domain)
     print(f"Gathering OSINT for: {domain}\n")
 
-    whois_data = get_whois_info(domain)
-    whois_table = [[key, textwrap.fill(str(value), width=60)] for key, value in whois_data.items()]
-    print("WHOIS Data:")
-    print(tabulate(whois_table, headers=["Field", "Value"], tablefmt="grid"))
-    print("\n")
+    ssl_info = ssl_certificate_info(domain)
+    if ssl_info:  
+        SSL_table = [[key, textwrap.fill(str(value), width=60)] for key, value in ssl_info.items()]
+        print("SSL information:")
+        print(tabulate(SSL_table, headers=["Field", "Value"], tablefmt="grid"))
+    else:
+        print("SSL information could not be retrieved.\n")
 
+    whois_data = get_whois_info(domain)
+    if isinstance(whois_data, dict):  
+        whois_table = [[key, textwrap.fill(str(value), width=60)] for key, value in whois_data.items()]
+        print("WHOIS Data:")
+        print(tabulate(whois_table, headers=["Field", "Value"], tablefmt="grid"))
+    else:
+        print(f"WHOIS Data: {whois_data}\n")  
 
     dns_records = get_dns_records(domain)
-    print("DNS Records:")
-    print(tabulate([[record] for record in dns_records], headers=["DNS Record"], tablefmt="grid"))
-    print("\n")
+    if isinstance(dns_records, list):  
+        print("DNS Records:")
+        print(tabulate([[record] for record in dns_records], headers=["DNS Record"], tablefmt="grid"))
+    else:
+        print(f"DNS Records: {dns_records}\n")  
 
     reverse_ip = reverse_ip_lookup(domain)
     print("Reverse IP Lookup:")
     print(tabulate([[record] for record in reverse_ip], headers=["Reverse IP Lookup"], tablefmt="grid"))
     print("\n")
+
+    subdomains = subdomain_enumeration(domain)
+    if subdomains:
+        subdomains_table = [[index + 1, textwrap.fill(subdomain, width=60)] for index, subdomain in enumerate(subdomains)]
+        print("Subdomains:")
+        print(tabulate(subdomains_table, headers=["Index", "Subdomain"], tablefmt="grid"))
+    else:
+        print("No subdomains could be retrieved.\n")
+
 
     github_info = github_recon(domain)
     print("GitHub Info:")
