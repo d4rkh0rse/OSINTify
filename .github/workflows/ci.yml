@@ -68,7 +68,7 @@ jobs:
       # Step 4: Perform Google Dorking on a sample domain
       - name: Run Google Dorking example
         run: |
-          python osint.py -d example.com -dorks  # Replace with actual command
+          python OSINTify.py -d example.com -dorks  # Replace with actual command
 
   github-recon:
     name: GitHub Recon Module Test
@@ -94,4 +94,4 @@ jobs:
       # Step 4: Perform GitHub Recon on a sample domain
       - name: Run GitHub Recon example
         run: |
-          python osint.py -d example.com -github  # Replace with actual command
+          python OSINTify.py -d example.com -github  # Replace with actual command
