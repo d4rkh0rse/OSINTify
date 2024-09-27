@@ -184,7 +184,7 @@ def print_banner():
        
        Author: D4rk_H0rs3
        Github: https://github.com/d4rkh0rse
-       Version: 1.0.0                                                    
+       Version: 1.0.1                                                    
 '''
     print(banner)
 
