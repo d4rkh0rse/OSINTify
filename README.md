@@ -25,7 +25,7 @@ OSINTify is a powerful Open Source Intelligence (OSINT) reconnaissance tool desi
 To use OSINTify, ensure you have Python 3.x installed. Clone the repository and install the required packages:
 
 ```bash
-git clone https://github.com/YourGitHub/OSINTify.git
+git clone https://github.com/d4rkh0rse/OSINTify.git
 cd OSINTify
 pip install -r requirements.txt
 ```
